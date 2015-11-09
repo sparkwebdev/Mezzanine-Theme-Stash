@@ -16,13 +16,6 @@ if ( ! function_exists( 'mezzanine_setup' ) ) :
  * as indicating support for post thumbnails.
  */
 function mezzanine_setup() {
-	/*
-	 * Make theme available for translation.
-	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on Mezzanine, use a find and replace
-	 * to change 'mezzanine' to the name of your theme in all the template files.
-	 */
-	load_theme_textdomain( 'mezzanine', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
