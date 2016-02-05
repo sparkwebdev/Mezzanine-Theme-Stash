@@ -1,0 +1,158 @@
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.btn,
+.btn:visited {
+	border: $border__width-site solid;
+	border-color: $color__brand-1;
+	background: $color__brand-1;
+	border-radius: $border__radius-button;
+	color: $color__tone-0;
+	@include font-size(1);
+	text-transform: uppercase;
+	text-decoration: none;
+	font-weight: $font__weight-bold;
+	line-height: 1.2;
+	padding: $spacing__forms-button-padding;
+	text-shadow: 0;
+	transition: $transition__all_fast;
+	display: inline-block;
+	text-align: center;
+
+	+ button,
+	+ input[type="button"],
+	+ input[type="reset"],
+	+ input[type="submit"],
+	+ .btn,
+	+ .btn:visited {
+		margin-left: $spacing__small;
+	}
+
+	&:hover {
+		border-color: $color__brand-1-mid;
+		background: $color__brand-1-mid;
+		color: $color__tone-80;
+	}
+
+	&:active,
+	&:focus {
+		border-color: $color__brand-1;
+		background: $color__tone-0;
+		outline: none;
+		color: $color__brand-1;
+	}
+
+	&.brand-1 {
+		border-color: $color__brand-1-light;
+		background: $color__brand-1-light;
+		color: $color__tone-100;
+
+		&:hover {
+			border-color: $color__brand-1-mid;
+			background: $color__brand-1-mid;
+		}
+
+		&:active,
+		&.active,
+		&:focus {
+			border-color: $color__tone-0;
+			background: $color__brand-1;
+			color: $color__tone-0;
+		}
+	}
+
+	&.brand-2 {
+		border-color: $color__brand-2-light;
+		background: $color__brand-2-light;
+		color: $color__tone-100;
+
+		&:hover {
+			border-color: $color__brand-2-mid;
+			background: $color__brand-2-mid;
+		}
+
+		&:active,
+		&.active,
+		&:focus {
+			border-color: $color__tone-0;
+			background: $color__brand-2;
+			color: $color__tone-0;
+		}
+	}
+
+	&.site-1 {
+		border-color: $color__site-1-light;
+		background: $color__site-1-light;
+		color: $color__tone-100;
+
+		&:hover {
+			border-color: $color__site-1-mid;
+			background: $color__site-1-mid;
+		}
+
+		&:active,
+		&.active,
+		&:focus {
+			border-color: $color__tone-0;
+			background: $color__site-1;
+			color: $color__tone-0;
+		}
+	}
+
+	&.site-2 {
+		border-color: $color__site-2-light;
+		background: $color__site-2-light;
+		color: $color__tone-100;
+
+		&:hover {
+			border-color: $color__site-2-mid;
+			background: $color__site-2-mid;
+		}
+
+		&:active,
+		&.active,
+		&:focus {
+			border-color: $color__tone-0;
+			background: $color__site-2;
+			color: $color__tone-0;
+		}
+	}
+
+}
+
+form {
+	margin-bottom: $spacing__large;
+	width: 100%;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+textarea {
+	color: $color__tone-60;
+	border: $border__width-site solid $color__brand-1;
+	border-radius: $border__radius-input;
+	margin-bottom: $spacing__medium;
+	display: block;
+
+	&:focus {
+		color: $color__tone-100;
+		outline: none;
+	}
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"] {
+	padding: $spacing__forms-input-padding;
+}
+
+textarea {
+	padding-left: $spacing__forms-input-padding;
+	width: 100%;
+}

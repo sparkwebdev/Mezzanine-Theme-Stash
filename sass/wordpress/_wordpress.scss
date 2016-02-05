@@ -1,0 +1,27 @@
+@import "posts-pages";
+@import "posts-navigation";
+@import "comments";
+@import "widgets";
+@import "galleries";
+@import "captions";
+
+/* Edit Link */
+.edit-link,
+.post-edit-link {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	background: $color__brand-1;
+	z-index: 999999;
+}
+.edit-link a,
+.post-edit-link a {
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    padding: $spacing__smaller $spacing__small;
+
+    &:hover {
+		background: $color__brand-1-mid;
+	}
+}

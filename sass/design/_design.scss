@@ -1,0 +1,15 @@
+body {
+	background: $color__tone-0;
+}
+#page {
+	background: $color__tone-0;
+}
+
+@import "typography";
+@import "links";
+@import "tables";
+@import "header";
+@import "menus";
+@import "content";
+@import "footer";
+@import "page-specific";

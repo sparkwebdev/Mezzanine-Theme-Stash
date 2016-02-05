@@ -16,8 +16,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
 <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
-
+<script src="<?php echo get_stylesheet_directory_uri(); ?>/js/min/modernizr.custom.js"></script>
 <?php wp_head(); ?>
+<!--[if (gte IE 7)&(lte IE 8)]>
+    <script src='<?php echo get_stylesheet_directory_uri(); ?>/js/min/respond.min.js'></script>
+    <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/js/min/selectivizr-min.js"></script>
+<![endif]-->
+<link rel="shortcut icon" type="image/x-icon" href="<?php echo get_home_url(); ?>/favicon.ico">
+<script>
+
+	jQuery( document ).ready(function() {
+
+		// Nav on mobile
+		jQuery('#primary-menu li').has( '.sub-menu' ).on({ 'touchstart' : function(e){
+			var submenu = jQuery(this).find('.sub-menu').first();
+			if (jQuery(submenu).is(":hidden") ) {
+				jQuery(submenu).show();
+				e.preventDefault();
+			}
+		} });
+
+	});
+
+</script>
 </head>
 
 <body <?php body_class(); ?>>

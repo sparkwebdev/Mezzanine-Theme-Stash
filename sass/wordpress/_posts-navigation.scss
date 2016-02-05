@@ -1,0 +1,29 @@
+/* Posts Navigation */
+.page-links {
+	clear: both;
+	margin: 0 0 $spacing__medium;
+}
+
+.edit-link {
+	clear: both;
+}
+
+.comment-navigation,
+.posts-navigation,
+.post-navigation {
+
+	.site-main & {
+		margin: 0 0 $spacing__medium;
+		overflow: hidden;
+	}
+
+	& .nav-previous, & .nav-next {
+		float: left;
+		width: 48%;
+		padding: $spacing__small 0;
+	}
+
+	& .nav-next {
+		float: right;
+	}
+}

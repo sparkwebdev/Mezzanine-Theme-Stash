@@ -1,0 +1,26 @@
+/* Footer  */
+#colophon {
+
+	text-align: center;
+	color: $color__brand-2-light;
+	background: $color__brand-1;
+	padding: $spacing__medium;
+
+	@include bp-medium {
+		text-align: left;
+	}
+
+	.site-info {
+
+		#site-info-copyright {
+
+			p {
+				@include font-size($font__size-smallprint);
+			}
+		}
+	}
+
+	a {
+		color: $color__brand-2-light;
+	}
+}

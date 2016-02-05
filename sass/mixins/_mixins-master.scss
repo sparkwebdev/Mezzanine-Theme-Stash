@@ -1,0 +1,103 @@
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) {
+	font-size: ($sizeValue * 16) * 1px;
+	font-size: $sizeValue * 1rem;
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+
+// =============================================================================
+// String Replace https://css-tricks.com/snippets/sass/str-replace-function/
+// =============================================================================
+
+@function str-replace($string, $search, $replace: "") {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+}
+
+// =============================================================================
+// Font Face https://gist.github.com/jonathantneal/d0460e5c2d5d7f9bc5e6/
+// =============================================================================
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+	$src: null;
+
+	$extmods: (
+		eot: "?",
+		svg: "#" + str-replace($name, " ", "_")
+	);
+
+	$formats: (
+		otf: "opentype",
+		ttf: "truetype"
+	);
+
+	@each $ext in $exts {
+		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+	}
+
+	@font-face {
+		font-family: quote($name);
+		font-style: $style;
+		font-weight: $weight;
+		src: $src;
+	}
+}
+
+
+// =============================================================================
+// Breakpoints
+// =============================================================================
+
+@mixin bp-mobile {
+  @media only screen and (min-width: 30em) { /* 480px @ 16px; */
+    @content;
+  }
+}
+@mixin bp-small {
+  @media only screen and (min-width: 37.5em) { /* 600px @ 16px; */
+    @content;
+  }
+}
+
+@mixin bp-medium {
+  @media only screen and (min-width: 48em) { /* 768px @ 16px; */
+    @content;
+  }
+}
+
+@mixin bp-large {
+  @media only screen and (min-width: 64em) { /* 1024px @ 16px; */
+    @content;
+  }
+}
+
+@mixin bp-full {
+  @media only screen and (min-width: $size__site-max-width) { /* $size__site-max-widthpx @ 16px; */
+    @content;
+  }
+}

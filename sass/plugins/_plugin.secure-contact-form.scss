@@ -1,0 +1,42 @@
+/* Fast Secure Contact Form */
+.fscf-div-error {
+	@include font-size($font__size-small);
+	display: inline-block;
+	margin-top: $spacing__smallest;
+	padding: $spacing__smallest $spacing__smaller;
+	color: $color__tone-80;
+	border-bottom: solid red !important;
+	background: $color__background-error;
+}
+#fscf_form_error1 {
+	display: none;
+}
+.fscf-required-text {
+	@include font-size($font__size-smaller);
+	margin-bottom: $spacing__medium;
+	display: inline-block;
+}
+.fscf-div-submit input[type="submit"] {
+	/*text-align: center;*/
+}
+.fscf-div-redirecting {
+	background: $color__background-success;
+	padding: $spacing__medium;
+	margin-bottom: $spacing__medium;
+	display: inline-block;
+}
+
+.fscf-div-form {
+	form {
+		max-width: 600px;
+
+		input {
+			width: 100%;
+			max-width: 375px;
+		}
+		input[type="submit"] {
+			width: auto;
+		}
+
+	}
+}

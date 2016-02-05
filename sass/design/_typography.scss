@@ -1,0 +1,61 @@
+body,
+button,
+input,
+select,
+textarea {
+	color: $color__tone-80;
+	font-family: $font__main;
+	font-weight: $font__weight-normal;
+	@include font-size($font__size-body);
+	line-height: $font__line-height-body;
+
+	/* Better Font Rendering */
+    -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+strong {
+	font-weight: $font__weight-bold;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: $font__weight-normal;
+	font-family: $font__headings;
+	color: $color__brand-1;
+
+	/* Better Font Rendering */
+    -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+	@include font-size($font__size-h1);
+	line-height: 1;
+}
+
+h2 {
+	@include font-size($font__size-h2);
+	line-height: $font__line-height-tight;
+	margin-bottom: $spacing__smaller;
+}
+
+h3 {
+	@include font-size($font__size-h3);
+	line-height: $font__line-height-tight;
+	margin-bottom: $spacing__small;
+}
+
+h4 {
+	@include font-size($font__size-h4);
+	margin-bottom: $spacing__small;
+}
+
+h5 {
+	@include font-size($font__size-h5);
+	margin-bottom: $spacing__medium;
+}
+
+h6 {
+	@include font-size($font__size-h6);
+	margin-bottom: $spacing__medium;
+}

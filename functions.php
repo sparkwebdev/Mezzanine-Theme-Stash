@@ -35,9 +35,17 @@ function mezzanine_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
+	// Add custom image size
+	// add_image_size( 'feature', 1600, 450, true );
+
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary Menu', 'mezzanine' ),
+	) );
+
+	// This theme uses wp_nav_menu() in one location.
+	register_nav_menus( array(
+		'footer' => esc_html__( 'Footer Menu', 'mezzanine' ),
 	) );
 
 	/*
@@ -93,6 +101,14 @@ function mezzanine_scripts() {
 
 	wp_enqueue_script( 'mezzanine-tools', get_template_directory_uri() . '/js/min/tools-min.js', array(), '', true );
 
+	if (!is_admin()) {
+		wp_deregister_script('jquery');
+		wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js", false, null);
+		wp_enqueue_script('jquery');
+	}
+
+	wp_enqueue_script( 'mezzanine-plugins', get_template_directory_uri() . '/js/min/plugins-min.js', array('jquery'), '', true );
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -100,6 +116,25 @@ function mezzanine_scripts() {
 add_action( 'wp_enqueue_scripts', 'mezzanine_scripts' );
 
 /**
+ * Custom functions for the admin back-end
+
+if (is_admin()) {
+	require get_template_directory() . '/inc/admin.php';
+} */
+
+/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
+
+/**
+ * Custom Wordpress Shortcodes
+ */
+// require get_template_directory() . '/inc/shortcodes.php';
+
+/**
+ * Woocommerce plugin specific functions
+
+if (function_exists( 'is_woocommerce' )) {
+	require get_template_directory() . '/inc/woocommerce.php';
+} */

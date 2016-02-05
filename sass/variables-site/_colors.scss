@@ -1,0 +1,42 @@
+// Brand Colour 1 (Teal)
+$color__brand-1: #15818B;
+$color__brand-1-mid: mix($color__brand-1, white, 50%);
+$color__brand-1-light: mix($color__brand-1, white, 20%);
+// $color__brand-1-dark: mix($color__brand-1, black, 20%);
+// $color__brand-1-darker: mix($color__brand-1, black, 50%);
+// $color__brand-1-bright: saturate($color__brand-1, 35%);
+// $color__brand-1-transparent: rgba($color__brand-1, .5);
+
+// Brand Colour 2 (Lime Green)
+$color__brand-2: #98D226;
+$color__brand-2-mid: mix($color__brand-2, white, 50%);
+$color__brand-2-light: mix($color__brand-2, white, 20%);
+
+// Site Colour 1 (Yellow)
+$color__site-1: #FFD14C;
+$color__site-1-mid: mix($color__site-1, white, 50%);
+$color__site-1-light: mix($color__site-1, white, 20%);
+
+// Site Colour 2 (Maroon)
+$color__site-2: #8F2B24;
+$color__site-2-mid: mix($color__site-2, white, 50%);
+$color__site-2-light: mix($color__site-2, white, 20%);
+
+// Greys
+$color__tone-0: #fff; // White
+$color__tone-100: #000; // Black
+$color__tone-10: mix($color__tone-100, white, 10%);
+$color__tone-20: mix($color__tone-100, white, 20%);
+$color__tone-40: mix($color__tone-100, white, 40%);
+$color__tone-60: mix($color__tone-100, white, 60%);
+$color__tone-80: mix($color__tone-100, white, 80%);
+
+// Links
+$color__link: $color__brand-1;
+$color__link-visited: $color__brand-1;
+$color__link-hover: mix($color__brand-1, black, 50%);
+
+// Notices
+$color__background-success: #bbf29d;
+$color__background-notice: $color__brand-2-mid;
+$color__background-error: mix(red, white, 50%);
