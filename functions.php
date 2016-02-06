@@ -1,13 +1,13 @@
 <?php
 /**
- * Mezzanine functions and definitions.
+ * Corner Gallery functions and definitions.
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package Mezzanine
+ * @package Corner Gallery
  */
 
-if ( ! function_exists( 'mezzanine_setup' ) ) :
+if ( ! function_exists( 'cornergallery_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -15,7 +15,7 @@ if ( ! function_exists( 'mezzanine_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function mezzanine_setup() {
+function cornergallery_setup() {
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -40,12 +40,12 @@ function mezzanine_setup() {
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'primary' => esc_html__( 'Primary Menu', 'mezzanine' ),
+		'primary' => esc_html__( 'Primary Menu', 'cornergallery' ),
 	) );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
-		'footer' => esc_html__( 'Footer Menu', 'mezzanine' ),
+		'footer' => esc_html__( 'Footer Menu', 'cornergallery' ),
 	) );
 
 	/*
@@ -60,8 +60,8 @@ function mezzanine_setup() {
 		'caption',
 	) );
 }
-endif; // mezzanine_setup
-add_action( 'after_setup_theme', 'mezzanine_setup' );
+endif; // cornergallery_setup
+add_action( 'after_setup_theme', 'cornergallery_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -70,19 +70,19 @@ add_action( 'after_setup_theme', 'mezzanine_setup' );
  *
  * @global int $content_width
  */
-function mezzanine_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'mezzanine_content_width', 640 );
+function cornergallery_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'cornergallery_content_width', 640 );
 }
-add_action( 'after_setup_theme', 'mezzanine_content_width', 0 );
+add_action( 'after_setup_theme', 'cornergallery_content_width', 0 );
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function mezzanine_widgets_init() {
+function cornergallery_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'mezzanine' ),
+		'name'          => esc_html__( 'Sidebar', 'cornergallery' ),
 		'id'            => 'sidebar-1',
 		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
@@ -91,15 +91,15 @@ function mezzanine_widgets_init() {
 		'after_title'   => '</h2>',
 	) );
 }
-add_action( 'widgets_init', 'mezzanine_widgets_init' );
+add_action( 'widgets_init', 'cornergallery_widgets_init' );
 
 /**
  * Enqueue scripts and styles.
  */
-function mezzanine_scripts() {
-	wp_enqueue_style( 'mezzanine-style', get_stylesheet_uri() );
+function cornergallery_scripts() {
+	wp_enqueue_style( 'cornergallery-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'mezzanine-tools', get_template_directory_uri() . '/js/min/tools-min.js', array(), '', true );
+	wp_enqueue_script( 'cornergallery-tools', get_template_directory_uri() . '/js/min/tools-min.js', array(), '', true );
 
 	if (!is_admin()) {
 		wp_deregister_script('jquery');
@@ -107,13 +107,13 @@ function mezzanine_scripts() {
 		wp_enqueue_script('jquery');
 	}
 
-	wp_enqueue_script( 'mezzanine-plugins', get_template_directory_uri() . '/js/min/plugins-min.js', array('jquery'), '', true );
+	wp_enqueue_script( 'cornergallery-plugins', get_template_directory_uri() . '/js/min/plugins-min.js', array('jquery'), '', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'mezzanine_scripts' );
+add_action( 'wp_enqueue_scripts', 'cornergallery_scripts' );
 
 /**
  * Custom template tags for this theme.

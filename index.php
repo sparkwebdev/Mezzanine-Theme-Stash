@@ -9,7 +9,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package Mezzanine
+ * @package Corner Gallery
  */
 
 get_header(); ?>
