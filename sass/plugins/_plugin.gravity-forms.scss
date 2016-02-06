@@ -1,0 +1,67 @@
+/* Gravity Forms */
+#page {
+	
+	.gform_wrapper {
+		
+		.gform_body {
+			
+			ul {
+				list-style: none;
+				padding: 0;
+			}
+			
+			/*input[type="text"],
+			input[type="email"],
+			input[type="url"],
+			input[type="password"],
+			input[type="search"] {
+				padding: $spacing__forms-input-padding;
+			}
+			textarea {
+				padding: $spacing__forms-input-padding;
+			}*/
+		
+		}
+		
+		/*.gform_footer {
+			
+			&.left_label {
+				
+				margin-left: 29%;
+			
+				input[type="submit"] {
+					
+					margin-left: 1em;
+				}
+			}
+		}*/
+	
+	}
+	
+	/*@media screen and (max-width: 29.9375em) {
+		.gform_wrapper .left_label li.field_sublabel_below .gfield_label,
+		.gform_wrapper .left_label input.large, .gform_wrapper .left_label select.large, .gform_wrapper .left_label textarea.large, .gform_wrapper .left_label textarea.medium, .gform_wrapper .left_label textarea.small, .gform_wrapper .right_label input.large, .gform_wrapper .right_label select.large, .gform_wrapper .right_label textarea.large, .gform_wrapper .right_label textarea.medium, .gform_wrapper .right_label textarea.small {
+	
+			width: 100%;
+			float: none;
+			display: block;
+	
+		}
+		.gform_wrapper .left_label ul.gfield_checkbox,
+		.gform_wrapper .left_label ul.gfield_radio,
+		.gform_wrapper .right_label ul.gfield_checkbox,
+		.gform_wrapper .right_label ul.gfield_radio {
+			margin-left: 0 !important;
+		}
+		
+	}
+	
+	.gform_confirmation_wrapper  {
+		
+		margin-bottom: $spacing__larger !important;
+		font-weight: $font__weight-bold;
+		@include font-size($font__size-h4);
+		
+	}*/
+
+}

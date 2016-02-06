@@ -6,12 +6,32 @@ textarea {
 	color: $color__tone-80;
 	font-family: $font__main;
 	font-weight: $font__weight-normal;
-	@include font-size($font__size-body);
 	line-height: $font__line-height-body;
 
-	/* Better Font Rendering */
+	/* Better Font Rendering
     -webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+	-moz-osx-font-smoothing: grayscale; */
+}
+
+body {
+	
+	@include font-size($font__size-smaller);
+	
+	@include bp-medium {
+		
+		@include font-size($font__size-body);
+		
+	}
+	
+	button,
+	input,
+	select,
+	textarea {
+		
+		@include font-size($font__size-body);
+		
+	}
+	
 }
 
 strong {
@@ -23,9 +43,9 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: $font__headings;
 	color: $color__brand-1;
 
-	/* Better Font Rendering */
+	/* Better Font Rendering
     -webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+	-moz-osx-font-smoothing: grayscale; */
 }
 
 h1 {
@@ -34,15 +54,27 @@ h1 {
 }
 
 h2 {
-	@include font-size($font__size-h2);
+	@include font-size($font__size-h3);
 	line-height: $font__line-height-tight;
 	margin-bottom: $spacing__smaller;
+	
+	@include bp-medium {
+		
+		@include font-size($font__size-h2);
+		
+	}
 }
 
 h3 {
 	@include font-size($font__size-h3);
 	line-height: $font__line-height-tight;
 	margin-bottom: $spacing__small;
+	
+	@include bp-medium {
+		
+		@include font-size($font__size-h4);
+		
+	}
 }
 
 h4 {

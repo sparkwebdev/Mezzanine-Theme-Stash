@@ -10,7 +10,7 @@
  */
 
 ?><!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> class="no-js">
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,8 +19,8 @@
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/min/modernizr.custom.js"></script>
 <?php wp_head(); ?>
 <!--[if (gte IE 7)&(lte IE 8)]>
-    <script src='<?php echo get_stylesheet_directory_uri(); ?>/js/min/respond.min.js'></script>
-    <script type="text/javascript" src="<?php echo get_stylesheet_directory_uri(); ?>/js/min/selectivizr-min.js"></script>
+    <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/min/respond.min.js"></script>
+    <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/min/selectivizr-min.js"></script>
 <![endif]-->
 <link rel="shortcut icon" type="image/x-icon" href="<?php echo get_home_url(); ?>/favicon.ico">
 <script>

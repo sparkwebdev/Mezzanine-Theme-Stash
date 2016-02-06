@@ -10,13 +10,12 @@
 			margin-bottom: 0;
 			padding-top: $spacing__small;
 			padding-bottom: $spacing__small;
-			padding-left: 16px;
 			border-top: solid 1px $color__tone-80;
 			position: relative;
 			padding-right: 30px;
 			@include font-size(1);
 			color: $color__link;
-			font-weight: $font__weight-bolder;
+			font-weight: $font__weight-bold;
 
 			&:before {
 				content: ' ';

@@ -116,16 +116,19 @@ function mezzanine_scripts() {
 add_action( 'wp_enqueue_scripts', 'mezzanine_scripts' );
 
 /**
- * Custom functions for the admin back-end
-
-if (is_admin()) {
-	require get_template_directory() . '/inc/admin.php';
-} */
-
-/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
+
+/**
+ * Custom post types for this theme.
+ */
+// require get_template_directory() . '/inc/custom-post-type.php';
+
+/**
+ * Custom taxonomies for this theme.
+ */
+// require get_template_directory() . '/inc/custom-taxonomy.php';
 
 /**
  * Custom Wordpress Shortcodes
@@ -138,3 +141,10 @@ require get_template_directory() . '/inc/template-tags.php';
 if (function_exists( 'is_woocommerce' )) {
 	require get_template_directory() . '/inc/woocommerce.php';
 } */
+
+/**
+ * Custom functions for the admin back-end
+if (is_admin()) {
+	require get_template_directory() . '/inc/admin.php';
+} */
+

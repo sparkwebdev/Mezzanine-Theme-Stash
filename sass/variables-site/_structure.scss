@@ -1,11 +1,19 @@
+// Site Widths
 $size__site-main: 100%;
 $size__site-sidebar: 32.1833333%;
 $size__site-sidebar-wide: 32.1833333%;
-//$size__site-max-width: 66em;
-$size__site-max-width: 1200px;
+$size__site-max-width: 66em;
+// $size__site-max-width-wide: 105em;
+// $size__site-max-width-features: 51.875em;
+// $size__site-max-width-narrow: 37.5em;
+// $size__site-max-width-narrower: 26em;
+// $size__site-max-width-narrowest: 18em;
+$size__site-max-content: 40em;
 
+// Gutter Widths
 $size__site-gutters: 1.725%;
 
+// Spacing
 $spacing__smallest: 0.2em;
 $spacing__smaller: 0.5em;
 $spacing__small: 0.8075em;
@@ -15,3 +23,6 @@ $spacing__larger: 2.6em;
 $spacing__largest: 4em;
 $spacing__forms-input-padding: $spacing__smaller;
 $spacing__forms-button-padding: ($spacing__small - 0.2em) $spacing__medium;
+
+// Misc
+// $header__height: 0px;

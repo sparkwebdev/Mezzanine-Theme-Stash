@@ -4,7 +4,7 @@ Theme URI: http://underscores.me/
 Author: Steven Park
 Author URI: http://stevenpark.co.uk
 Description: A base theme framework for Steven Park\'s Wordpress themes, based on the Mezzanine theme from Automattic [http://underscores.me/]
-Version: 1.1.0
+Version: 1.1.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: mezzanine
@@ -20,21 +20,18 @@ Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 */
 /*--------------------------------------------------------------
->>> TABLE OF CONTENTS: NEW
+>>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
 # Normalize
 # Modules
 	## Accessibility
 	## Alignments
 	## Clearings
-# Typography
-	## Headings
-	## Copy
 # HTML Elements
 	## Lists
 	## Forms
 	## Tables
-# Structure
+# Structure / Layout
 # Wordpress
 # Design
 # Components
@@ -291,6 +288,8 @@ object {
 .clear:after,
 .entry-content:before,
 .entry-content:after,
+.page-content:before,
+.page-content:after,
 .comment-content:before,
 .comment-content:after,
 .site-header:before,
@@ -427,14 +426,13 @@ input[type="submit"],
   color: #fff;
   font-size: 16px;
   font-size: 1rem;
-  text-transform: uppercase;
   text-decoration: none;
   font-weight: bold;
   line-height: 1.2;
   padding: 0.6075em 1.4375em;
   text-shadow: 0;
   -webkit-transition: all 0.25s ease;
-          transition: all 0.25s ease;
+  transition: all 0.25s ease;
   display: inline-block;
   text-align: center; }
   button + button,
@@ -646,6 +644,10 @@ input[type="submit"],
 form {
   margin-bottom: 2em;
   width: 100%; }
+  form fieldset {
+    border: none;
+    padding: 0;
+    margin: 0; }
 
 input[type="text"],
 input[type="email"],
@@ -657,15 +659,18 @@ textarea {
   border: 1px solid #15818B;
   border-radius: 0;
   margin-bottom: 1.4375em;
-  display: block; }
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  outline: none;
+  -webkit-appearance: none; }
   input[type="text"]:focus,
   input[type="email"]:focus,
   input[type="url"]:focus,
   input[type="password"]:focus,
   input[type="search"]:focus,
   textarea:focus {
-    color: #000;
-    outline: none; }
+    color: #000; }
 
 input[type="text"],
 input[type="email"],
@@ -676,7 +681,8 @@ input[type="search"] {
 
 textarea {
   padding-left: 0.5em;
-  width: 100%; }
+  width: 100%;
+  max-width: 600px; }
 
 table {
   margin: 0 0 1.4375em;
@@ -694,7 +700,7 @@ table {
 # Structure / Layout
 --------------------------------------------------------------*/
 #page {
-  max-width: 1200px;
+  max-width: 66em;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -873,12 +879,25 @@ textarea {
   color: #333333;
   font-family: "Georgia", serif;
   font-weight: normal;
-  font-size: 16px;
-  font-size: 1rem;
   line-height: 1.5;
-  /* Better Font Rendering */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
+  	/* Better Font Rendering
+      -webkit-font-smoothing: antialiased;
+  	-moz-osx-font-smoothing: grayscale; */ }
+
+body {
+  font-size: 14px;
+  font-size: 0.875rem; }
+  @media only screen and (min-width: 48em) {
+    body {
+      /* 768px @ 16px; */
+      font-size: 16px;
+      font-size: 1rem; } }
+  body button,
+  body input,
+  body select,
+  body textarea {
+    font-size: 16px;
+    font-size: 1rem; }
 
 strong {
   font-weight: bold; }
@@ -887,9 +906,9 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
   font-family: "Georgia", serif, sans-serif;
   color: #15818B;
-  /* Better Font Rendering */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
+  	/* Better Font Rendering
+      -webkit-font-smoothing: antialiased;
+  	-moz-osx-font-smoothing: grayscale; */ }
 
 h1 {
   font-size: 36px;
@@ -897,16 +916,26 @@ h1 {
   line-height: 1; }
 
 h2 {
-  font-size: 30px;
-  font-size: 1.875rem;
+  font-size: 24px;
+  font-size: 1.5rem;
   line-height: 1.2;
   margin-bottom: 0.5em; }
+  @media only screen and (min-width: 48em) {
+    h2 {
+      /* 768px @ 16px; */
+      font-size: 30px;
+      font-size: 1.875rem; } }
 
 h3 {
   font-size: 24px;
   font-size: 1.5rem;
   line-height: 1.2;
   margin-bottom: 0.8075em; }
+  @media only screen and (min-width: 48em) {
+    h3 {
+      /* 768px @ 16px; */
+      font-size: 20px;
+      font-size: 1.25rem; } }
 
 h4 {
   font-size: 20px;
@@ -926,8 +955,9 @@ h6 {
 a {
   color: #15818B;
   -webkit-transition: color 0.5s ease;
-          transition: color 0.5s ease;
-  text-decoration: none; }
+  transition: color 0.5s ease;
+  text-decoration: none;
+  font-weight: bold; }
   a:visited {
     color: #15818B; }
   a:hover, a:focus, a:active {
@@ -938,9 +968,9 @@ a {
     outline: thin dotted; }
 
 table {
-  /* Table cellspacing
+  /* Table cellspacing */
   border-collapse: separate;
-  border-spacing: 2px;*/ }
+  border-spacing: 2px; }
   table tr {
     background: #cccccc; }
     table tr:nth-child(2n) {
@@ -950,6 +980,9 @@ table {
       padding: 0.2em 0.8075em;
       text-align: left;
       font-weight: 100; }
+    table tr th {
+      background: #15818B;
+      color: #fff; }
 
 .main-navigation {
   clear: both;
@@ -1029,8 +1062,9 @@ table {
   #colophon a {
     color: #eaf6d4; }
 
-/* Archives */
-/* Single Posts */
+/* Home page */
+/* Blog */
+/* 404 Page */
 /*--------------------------------------------------------------
 # Components
 --------------------------------------------------------------*/
@@ -1046,14 +1080,13 @@ table {
       margin-bottom: 0;
       padding-top: 0.8075em;
       padding-bottom: 0.8075em;
-      padding-left: 16px;
       border-top: solid 1px #333333;
       position: relative;
       padding-right: 30px;
       font-size: 16px;
       font-size: 1rem;
       color: #15818B;
-      font-weight: 700; }
+      font-weight: bold; }
       .js .accordion dt h3:before {
         content: ' ';
         position: absolute;
@@ -1073,12 +1106,12 @@ table {
         color: #0b4146;
         cursor: pointer;
         -webkit-transition: color 0.5s ease;
-                transition: color 0.5s ease; }
+        transition: color 0.5s ease; }
         .js .accordion dt h3:hover:before {
           border-left-color: #0b4146; }
     .js .accordion dt.accordion-active h3:before {
       -webkit-transition: all 0.25s ease;
-              transition: all 0.25s ease;
+      transition: all 0.25s ease;
       -webkit-transform: rotate(90deg);
           -ms-transform: rotate(90deg);
               transform: rotate(90deg);
@@ -1108,6 +1141,16 @@ table {
  */
 /** RESET AND LAYOUT
 ===================================*/
+.bxslider {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+  .bxslider li {
+    display: none;
+    width: 100%; }
+    .bxslider li:first-of-type {
+      display: block; }
+
 .bx-wrapper {
   position: relative;
   margin: 0 auto;
@@ -1385,6 +1428,176 @@ table {
   border-top-color: transparent;
   border-bottom-color: transparent; }
 
+/**
+ * BxSlider v4.1.2 - Fully loaded, responsive content slider
+ * http://bxslider.com
+ *
+ * Written by: Steven Wanderski, 2014
+ * http://stevenwanderski.com
+ * (while drinking Belgian ales and listening to jazz)
+ *
+ * CEO and founder of bxCreative, LTD
+ * http://bxcreative.com
+ */
+/** RESET AND LAYOUT
+===================================*/
+.bxslider {
+  list-style: none;
+  padding: 0;
+  margin: 0; }
+  .bxslider li {
+    display: none;
+    width: 100%; }
+    .bxslider li:first-of-type {
+      display: block; }
+
+.bx-wrapper {
+  position: relative;
+  margin: 0 auto;
+  padding: 0;
+  *zoom: 1; }
+
+.bx-wrapper img {
+  max-width: 100%;
+  display: block; }
+
+/** THEME
+===================================*/
+.bx-wrapper .bx-viewport {
+  /*fix other elements on the page moving (on Chrome)*/
+  -webkit-transform: translatez(0);
+  -ms-transform: translatez(0);
+  transform: translatez(0); }
+
+.bx-wrapper .bx-pager,
+.bx-wrapper .bx-controls-auto {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%; }
+
+/* LOADER */
+.bx-wrapper .bx-loading {
+  min-height: 50px;
+  background: url(img/bx_loader.gif) center center no-repeat #fff;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2000; }
+
+/* PAGER */
+.bx-wrapper .bx-pager {
+  text-align: center;
+  color: #666;
+  line-height: 10px;
+  padding: 1.4375em; }
+
+.bx-wrapper .bx-pager .bx-pager-item,
+.bx-wrapper .bx-controls-auto .bx-controls-auto-item {
+  display: inline-block;
+  *zoom: 1;
+  *display: inline; }
+
+.bx-wrapper .bx-pager.bx-default-pager a {
+  background: #666;
+  text-indent: -9999px;
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  outline: 0;
+  border-radius: 5px; }
+
+.bx-wrapper .bx-pager.bx-default-pager a:hover,
+.bx-wrapper .bx-pager.bx-default-pager a.active {
+  background: #fff; }
+
+/* DIRECTION CONTROLS (NEXT / PREV) */
+.bx-wrapper .bx-prev {
+  left: 10px;
+  background: url(img/controls.png) no-repeat 0 -32px; }
+
+.bx-wrapper .bx-next {
+  right: 10px;
+  background: url(img/controls.png) no-repeat -43px -32px; }
+
+.bx-wrapper .bx-prev:hover {
+  background-position: 0 0; }
+
+.bx-wrapper .bx-next:hover {
+  background-position: -43px 0; }
+
+.bx-wrapper .bx-controls-direction a {
+  position: absolute;
+  top: 50%;
+  margin-top: -16px;
+  outline: 0;
+  width: 32px;
+  height: 32px;
+  text-indent: -9999px;
+  z-index: 99; }
+
+.bx-wrapper .bx-controls-direction a.disabled {
+  display: none; }
+
+/* AUTO CONTROLS (START / STOP) */
+.bx-wrapper .bx-controls-auto {
+  text-align: center; }
+
+.bx-wrapper .bx-controls-auto .bx-start {
+  display: block;
+  text-indent: -9999px;
+  width: 10px;
+  height: 11px;
+  outline: 0;
+  background: url(images/controls.png) -86px -11px no-repeat;
+  margin: 0 3px; }
+
+.bx-wrapper .bx-controls-auto .bx-start:hover,
+.bx-wrapper .bx-controls-auto .bx-start.active {
+  background-position: -86px 0; }
+
+.bx-wrapper .bx-controls-auto .bx-stop {
+  display: block;
+  text-indent: -9999px;
+  width: 9px;
+  height: 11px;
+  outline: 0;
+  background: url(images/controls.png) -86px -44px no-repeat;
+  margin: 0 3px; }
+
+.bx-wrapper .bx-controls-auto .bx-stop:hover,
+.bx-wrapper .bx-controls-auto .bx-stop.active {
+  background-position: -86px -33px; }
+
+/* PAGER WITH AUTO-CONTROLS HYBRID LAYOUT */
+.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-pager {
+  text-align: left;
+  width: 80%; }
+
+.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-controls-auto {
+  right: 0;
+  width: 35px; }
+
+/* IMAGE CAPTIONS */
+.bx-wrapper .bx-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #666 \9;
+  background: rgba(80, 80, 80, 0.75);
+  width: 100%; }
+
+.bx-wrapper .bx-caption span {
+  color: #fff;
+  font-family: Arial;
+  display: block;
+  font-size: .85em;
+  padding: 10px; }
+
 /* Fast Secure Contact Form */
 .fscf-div-error {
   font-size: 15px;
@@ -1417,8 +1630,7 @@ table {
 .fscf-div-form form {
   max-width: 600px; }
   .fscf-div-form form input {
-    width: 100%;
-    max-width: 375px; }
+    width: 100%; }
   .fscf-div-form form input[type="submit"] {
     width: auto; }
 
@@ -1453,6 +1665,61 @@ ul.wolf-tweet-list li:before {
 .wolf-bigtweet-content span.wolf-tweet-text {
   font-size: 24px;
   position: relative; }
+
+/* Gravity Forms */
+#page {
+  /*@media screen and (max-width: 29.9375em) {
+  	.gform_wrapper .left_label li.field_sublabel_below .gfield_label,
+  	.gform_wrapper .left_label input.large, .gform_wrapper .left_label select.large, .gform_wrapper .left_label textarea.large, .gform_wrapper .left_label textarea.medium, .gform_wrapper .left_label textarea.small, .gform_wrapper .right_label input.large, .gform_wrapper .right_label select.large, .gform_wrapper .right_label textarea.large, .gform_wrapper .right_label textarea.medium, .gform_wrapper .right_label textarea.small {
+  
+  		width: 100%;
+  		float: none;
+  		display: block;
+  
+  	}
+  	.gform_wrapper .left_label ul.gfield_checkbox,
+  	.gform_wrapper .left_label ul.gfield_radio,
+  	.gform_wrapper .right_label ul.gfield_checkbox,
+  	.gform_wrapper .right_label ul.gfield_radio {
+  		margin-left: 0 !important;
+  	}
+  	
+  }
+  
+  .gform_confirmation_wrapper  {
+  	
+  	margin-bottom: $spacing__larger !important;
+  	font-weight: $font__weight-bold;
+  	@include font-size($font__size-h4);
+  	
+  }*/ }
+  #page .gform_wrapper {
+    /*.gform_footer {
+    	
+    	&.left_label {
+    		
+    		margin-left: 29%;
+    	
+    		input[type="submit"] {
+    			
+    			margin-left: 1em;
+    		}
+    	}
+    }*/ }
+    #page .gform_wrapper .gform_body {
+      /*input[type="text"],
+      input[type="email"],
+      input[type="url"],
+      input[type="password"],
+      input[type="search"] {
+      	padding: $spacing__forms-input-padding;
+      }
+      textarea {
+      	padding: $spacing__forms-input-padding;
+      }*/ }
+      #page .gform_wrapper .gform_body ul {
+        list-style: none;
+        padding: 0; }
 
 /*--------------------------------------------------------------
 # Legacy browsers (via Modernizr)

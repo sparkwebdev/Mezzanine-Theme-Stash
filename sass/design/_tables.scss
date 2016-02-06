@@ -1,7 +1,7 @@
 table {
-	/* Table cellspacing
+	/* Table cellspacing */
 	border-collapse: separate;
-	border-spacing: 2px;*/
+	border-spacing: 2px;
 
 	tr {
 		background: $color__tone-20;
@@ -15,6 +15,11 @@ table {
 			padding: $spacing__smallest $spacing__small;
 			text-align: left;
 			font-weight: 100;
+		}
+		
+		th {
+			background: $color__brand-1;
+			color: #fff;
 		}
 
 	}

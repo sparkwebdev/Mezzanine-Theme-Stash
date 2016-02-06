@@ -14,6 +14,9 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
+		<nav id="site-navigation-footer" class="main-navigation" role="navigation">
+			<?php wp_nav_menu( array( 'theme_location' => 'footer', 'menu_id' => 'primary-menu-footer' ) ); ?>
+		</nav><!-- #site-navigation -->
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'mezzanine' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'mezzanine' ), 'WordPress' ); ?></a>
 			<span class="sep"> | </span>

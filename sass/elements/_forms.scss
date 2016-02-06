@@ -4,13 +4,12 @@ input[type="reset"],
 input[type="submit"],
 .btn,
 .btn:visited {
-	border: $border__width-site solid;
+	border: $border__width-button solid;
 	border-color: $color__brand-1;
 	background: $color__brand-1;
 	border-radius: $border__radius-button;
 	color: $color__tone-0;
 	@include font-size(1);
-	text-transform: uppercase;
 	text-decoration: none;
 	font-weight: $font__weight-bold;
 	line-height: 1.2;
@@ -124,6 +123,14 @@ input[type="submit"],
 form {
 	margin-bottom: $spacing__large;
 	width: 100%;
+	
+	fieldset {
+		
+		border: none;
+		padding: 0;
+		margin: 0;
+
+	}
 }
 
 input[type="text"],
@@ -137,10 +144,13 @@ textarea {
 	border-radius: $border__radius-input;
 	margin-bottom: $spacing__medium;
 	display: block;
+	width: 100%;
+	max-width: 400px;
+	outline: none;
+	-webkit-appearance: none;
 
 	&:focus {
 		color: $color__tone-100;
-		outline: none;
 	}
 }
 
@@ -155,4 +165,5 @@ input[type="search"] {
 textarea {
 	padding-left: $spacing__forms-input-padding;
 	width: 100%;
+	max-width: 600px;
 }
