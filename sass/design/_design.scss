@@ -9,7 +9,21 @@ body {
 @import "links";
 @import "tables";
 @import "header";
-@import "menus";
 @import "content";
 @import "footer";
 @import "page-specific";
+
+.site-content {
+
+	.content-block {
+
+		h3 {
+			
+			text-transform: uppercase;
+			@include font-size($font__size-h2);
+
+		}
+
+	}
+	
+}

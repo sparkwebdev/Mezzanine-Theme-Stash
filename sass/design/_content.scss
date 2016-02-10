@@ -1,0 +1,61 @@
+.site-content {
+	
+	background: #ddd;
+	max-width: $size__site-max-width;
+	@include center-block;
+	
+	
+	.content-block {
+		
+		&:nth-of-type(3n+1) {
+		
+			background: $color__brand-1;
+			
+		}
+		
+		&:nth-of-type(3n+2) {
+		
+			background: $color__brand-2;
+			
+		}
+		
+		&:nth-of-type(3n+3) {
+		
+			background: $color__tone-20;
+			
+		}
+		
+		.col {
+			
+			padding: $spacing__largest $spacing__large $spacing__larger $spacing__large;
+		
+		}
+		
+		> .col {
+		
+			min-height: 250px;
+		
+			@include bp-medium {
+				
+				min-height: 450px;
+				
+			}
+			
+		}
+		
+		.col-tight {
+			
+			padding: 0;
+			
+		}
+		
+		.bg-img {
+			
+			background-position: center center;
+			background-size: cover;
+			
+		}
+		
+	}
+
+}

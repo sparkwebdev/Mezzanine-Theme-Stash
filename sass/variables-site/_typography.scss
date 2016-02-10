@@ -1,25 +1,25 @@
 // Typography
-$font__main: 'Georgia', serif;
-$font__headings: $font__main, sans-serif;
-$font__headings_slab: $font__main, sans-serif;
-$font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+$font__main: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;
+$font__headings: 'source-code-pro', sans-serif;
+$font__headings_slab: $font__headings, sans-serif;
+$font__code: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;
 $font__pre: "Courier 10 Pitch", Courier, monospace;
 
 $font__weight-normal: normal;
 $font__weight-bold: bold;
-$font__weight-bolder: 700;
-$font__weight-slab: 900;
+//$font__weight-bolder: 700;
+//$font__weight-slab: 900;
 
 $font__line-height-body: 1.5;
 $font__line-height-tight: 1.2;
 $font__line-height-pre: 1.6;
 
-$font__size-h1: 2.25; // 36px
-$font__size-h2: 1.875; // 30px
-$font__size-h3: 1.5; // 24px
-$font__size-h4: 1.25; // 20px
-$font__size-h5: 1.125; // 18px
-$font__size-h6: 1.125; // 18px
+$font__size-h1: 2; // 32px
+$font__size-h2: 1.75; // 28px
+$font__size-h3: 1.375; // 22px
+$font__size-h4: 1.125; // 18px
+$font__size-h5: 1; // 16px
+$font__size-h6: 1; // 16px
 
 $font__size-bigger: 1.25; // 20px
 $font__size-big: 1.125; // 18px

@@ -1,26 +1,72 @@
 /* Footer  */
-#colophon {
+.site-footer {
 
 	text-align: center;
-	color: $color__brand-2-light;
-	background: $color__brand-1;
-	padding: $spacing__medium;
+	background: $color__brand-2-mid;
 
 	@include bp-medium {
 		text-align: left;
 	}
-
+	
+	
 	.site-info {
-
-		#site-info-copyright {
-
-			p {
-				@include font-size($font__size-smallprint);
+		max-width: $size__site-max-width;
+		@include center-block;
+		padding: 0 $spacing__large $spacing__smaller $spacing__large;
+		
+		p {
+			max-width: $size__site-max-width;
+			@include center-block;
+			margin-top: $spacing__medium;
+			margin-bottom: 0;
+			font-weight: $font__weight-bold;
+			
+			strong {
+				display: block;
+				@include bp-medium {
+					display: inline;
+				}
+			}
+			span {
+				display: block;
+				@include bp-small {
+					white-space: nowrap;
+				}
+				@include bp-medium {
+					display: inline;
+				}
+			}
+		
+			&.social-buttons {
+				a {
+					display: inline-block;
+					width: 2.25em;
+					height: 2.25em;
+					text-align: center;
+					line-height: 2.25em;
+					@include font-size($font__size-h2);
+					border-radius: 50%;
+					color: #000;
+					background: #fff;
+					margin-left: $spacing__smallest;
+				}
+				
+				@include bp-medium {
+					margin-top: 0;
+					margin-left: $spacing__medium;
+					float: right;
+				
+					&:hover a,
+					&:focus a {
+						opacity: 0.65;
+					
+						&:hover,
+						&:focus {
+							opacity: 1;
+						}
+					}
+				}
 			}
 		}
-	}
-
-	a {
-		color: $color__brand-2-light;
 	}
 }

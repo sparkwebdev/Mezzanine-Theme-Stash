@@ -1,0 +1,263 @@
+.site-header {
+	max-width: $size__site-max-width;
+	@include center-block;
+	width: 100%;
+	padding: 0 $spacing__medium 0;
+	
+	@include bp-large {
+		padding-top: $header__height;
+	}
+	.js & {
+		padding-top: $header__height;
+	}
+	
+	.site-branding {
+		
+		padding: $spacing__larger 0;
+		line-height: $font__line-height-tight;
+		max-width: 28em;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+		
+		.site-description {
+			margin-bottom: 0;
+		}
+		
+		@include bp-small {
+			
+			margin-left: 0;
+			margin-right: 0;
+			text-align: left;
+			max-width: none;
+			
+			.site-title,
+			.site-description {
+				display: inline-block;
+				width: 52%;
+				vertical-align: middle;
+				margin-bottom: 0;
+			}
+			.site-description {
+				margin-left: 6%;
+				width: 40%;
+			}
+		}
+		@include bp-large {
+			.site-title,
+			.site-description {
+				width: 38%;
+				margin-left: 4%;
+			}
+			.site-description {
+				width: 44%;
+				margin-left: 10%;
+			}
+		}
+		
+		.site-title {
+			
+			a {
+				display: block;
+				background-image: url(img/logo-fallback.png);
+				background-image: url(img/logo.svg), linear-gradient(transparent, transparent);
+				background-repeat: no-repeat;
+				background-size: auto 100%;
+				background-position: center;
+				width: 100%;
+				padding-bottom: 44%;
+				
+				@include bp-small {
+					background-position: left center;
+				}
+				
+			}
+		}
+		.site-description {
+			color: $color__brand-2-bright;
+			font-family: $font__headings;
+			@include font-size($font__size-h4);
+			/* Better Font Rendering */
+		    -webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+			
+			@include bp-large {
+				@include font-size($font__size-h3);
+			}
+			@include bp-desktop {
+				@include font-size($font__size-h2);
+			}
+		}
+	}
+	
+	+ .main-navigation {
+	
+		/*position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;*/
+		background: $color__brand-2-mid;
+	
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: $spacing__small 0;
+			background: $color__brand-2-mid;
+				
+			li {
+				
+				text-align: center;
+				line-height: $spacing__larger;
+				
+				a {
+					display: block;
+					text-transform: lowercase;
+					font-weight: bold;
+					color: inherit;
+				}
+				
+				
+				&:last-child > a,
+				&.current_page_item > a,
+				&.current-menu-item > a,
+				&.current_page_ancestor > a,
+				&.current-menu-ancestor > a,
+				a:hover, a:focus {
+					color: $color__brand-1;
+				}
+	
+	
+			}
+		}
+		
+	
+		/* Mobile Menu */
+		.js & {
+			
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: $header__height;
+				
+			ul {
+		
+				display: none;
+				
+				@include bp-large {
+			
+					display: block;
+				
+				}
+				
+			
+			}
+			
+			&.toggled {
+			
+				ul {
+			
+					display: block;
+					padding-top: $spacing__largest;
+				
+				}
+				
+			}
+		}
+	
+	
+		/* Desktop Menu */
+		@include bp-large {
+			
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+				
+			ul {
+				padding-top: $spacing__medium;
+				padding: $spacing__medium 0 0 0;
+				margin-top: 0;
+				text-align: center;
+				
+				li {
+					display: inline-block;
+					position: relative;
+					
+					a {
+						
+						letter-spacing: -0.025em;
+						padding: 0 ($spacing__smallest + $spacing__smallest);
+						
+						@include bp-desktop {
+							
+							letter-spacing: inherit;
+							padding: 0 $spacing__small;
+							
+						}
+						
+					}
+				}
+				
+			}
+			
+		}
+		
+		
+		/* Mobile Menu - Menu Toggle */
+		.menu-toggle {
+			display: none;
+			
+			.js & {
+				
+				display: block;
+				
+				@include bp-large {
+					
+					display: none;
+					
+				}
+				
+			}
+			
+			position: absolute;
+			top: 26px;
+			right: $spacing__medium;
+			width: 18px;
+			height: 0.9em;
+			line-height: 0.9em;
+			background: transparent;
+			border: 0;
+		    text-align: left;
+		    width: 2.75em;
+		    padding: 0 22px 0 0;
+		    box-sizing: content-box;
+		    border-color: transparent;
+		    background: transparent !important;
+			font-weight: bold;
+			
+			&:before {
+				position: absolute;
+				top: 1px;
+				right: 0;
+				width: 18px;
+				height: 3px;
+				content: "";
+				background: $color__brand-1;
+				box-shadow: 0 5px 0 0 $color__brand-1, 0 10px 0 0 $color__brand-1;
+			}
+			
+			&:hover,
+			&:focus,
+			&:active {
+				background: transparent;
+				outline: none;
+				color: inherit;
+			}
+			
+		}
+	
+	}
+
+}
+

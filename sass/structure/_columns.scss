@@ -1,0 +1,70 @@
+.cols {
+	
+	clear: left;
+	overflow: auto;
+	
+	@include bp-medium {
+	
+		.flexbox & {
+		    display: flex;
+	    }
+		
+		.col {
+			width: 50%;
+			float: left;
+			
+		
+			&.col-1-1 {
+				
+				width: 35%;
+				
+			}
+			
+			&.col-1-2 {
+				
+				width: 65%;
+				
+			}
+			
+			.cols {
+				display: block;
+				
+				.col {
+					
+					width: 100%;
+					float: none;
+					
+				}
+	
+				@include bp-full {
+
+					.flexbox & {
+					    display: flex;
+				    }
+					
+					.col {
+						width: 50%;
+						float: left;
+						
+					
+						&.col-1-1 {
+							
+							width: 35%;
+							
+						}
+						
+						&.col-1-2 {
+							
+							width: 65%;
+							
+						}
+					
+					}
+				
+				}
+			}
+			
+		}
+	}
+	
+}

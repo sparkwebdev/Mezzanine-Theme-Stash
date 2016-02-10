@@ -133,14 +133,14 @@ require get_template_directory() . '/inc/template-tags.php';
 /**
  * Custom Wordpress Shortcodes
  */
-// require get_template_directory() . '/inc/shortcodes.php';
+require get_template_directory() . '/inc/shortcodes.php';
 
 /**
  * Woocommerce plugin specific functions
-
+ */
 if (function_exists( 'is_woocommerce' )) {
 	require get_template_directory() . '/inc/woocommerce.php';
-} */
+}
 
 /**
  * Custom functions for the admin back-end
@@ -148,3 +148,15 @@ if (is_admin()) {
 	require get_template_directory() . '/inc/admin.php';
 } */
 
+// Add Options Page (Advanced Custom Fields)
+if( function_exists('acf_add_options_page') ) {
+
+	acf_add_options_page(array(
+		'page_title' 	=> 'Site Settings',
+		'menu_title'	=> 'Site Settings',
+		'menu_slug' 	=> 'site-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+
+}
