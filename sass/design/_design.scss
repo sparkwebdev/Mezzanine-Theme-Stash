@@ -1,7 +1,7 @@
-body {
-	background: $color__tone-0;
-}
 #page {
+	background: $color__brand-1-light;
+}
+.site-content, .site-header {
 	background: $color__tone-0;
 }
 
@@ -12,18 +12,3 @@ body {
 @import "content";
 @import "footer";
 @import "page-specific";
-
-.site-content {
-
-	.content-block {
-
-		h3 {
-			
-			text-transform: uppercase;
-			@include font-size($font__size-h2);
-
-		}
-
-	}
-	
-}

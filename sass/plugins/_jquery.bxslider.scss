@@ -24,6 +24,15 @@
 	
 	    display: none;
 	    width: 100%;
+		min-height: 350px;
+		background-size: cover;
+		background-position: center center;
+
+		@include bp-medium {
+
+			min-height: 450px;
+	
+		}
 	    
 		&:first-of-type {
 			display: block;
@@ -76,7 +85,7 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	z-index: 2000;
+	z-index: 9;
 }
 
 /* PAGER */

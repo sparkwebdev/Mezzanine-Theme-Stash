@@ -20,6 +20,14 @@
 			margin-top: $spacing__medium;
 			margin-bottom: 0;
 			font-weight: $font__weight-bold;
+			@include font-size($font__size-small);
+
+			@include bp-medium {
+				@include font-size($font__size-big);
+			}
+			@include bp-large {
+				@include font-size($font__size-bigger);
+			}
 			
 			strong {
 				display: block;

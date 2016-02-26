@@ -16,6 +16,7 @@ a {
 		outline: 0;
 	}
 	&:focus {
-		outline: thin dotted;
+		//outline: thin dotted;
+		outline: 0;
 	}
 }

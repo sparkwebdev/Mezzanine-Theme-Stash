@@ -42,82 +42,6 @@ input[type="submit"],
 		color: $color__brand-1;
 	}
 
-	&.brand-1 {
-		border-color: $color__brand-1-light;
-		background: $color__brand-1-light;
-		color: $color__tone-100;
-
-		&:hover {
-			border-color: $color__brand-1-mid;
-			background: $color__brand-1-mid;
-		}
-
-		&:active,
-		&.active,
-		&:focus {
-			border-color: $color__tone-0;
-			background: $color__brand-1;
-			color: $color__tone-0;
-		}
-	}
-
-	&.brand-2 {
-		border-color: $color__brand-2-light;
-		background: $color__brand-2-light;
-		color: $color__tone-100;
-
-		&:hover {
-			border-color: $color__brand-2-mid;
-			background: $color__brand-2-mid;
-		}
-
-		&:active,
-		&.active,
-		&:focus {
-			border-color: $color__tone-0;
-			background: $color__brand-2;
-			color: $color__tone-0;
-		}
-	}
-
-	&.site-1 {
-		border-color: $color__site-1-light;
-		background: $color__site-1-light;
-		color: $color__tone-100;
-
-		&:hover {
-			border-color: $color__site-1-mid;
-			background: $color__site-1-mid;
-		}
-
-		&:active,
-		&.active,
-		&:focus {
-			border-color: $color__tone-0;
-			background: $color__site-1;
-			color: $color__tone-0;
-		}
-	}
-
-	&.site-2 {
-		border-color: $color__site-2-light;
-		background: $color__site-2-light;
-		color: $color__tone-100;
-
-		&:hover {
-			border-color: $color__site-2-mid;
-			background: $color__site-2-mid;
-		}
-
-		&:active,
-		&.active,
-		&:focus {
-			border-color: $color__tone-0;
-			background: $color__site-2;
-			color: $color__tone-0;
-		}
-	}
-
 }
 
 form {
@@ -135,6 +59,7 @@ form {
 
 input[type="text"],
 input[type="email"],
+input[type="tel"],
 input[type="url"],
 input[type="password"],
 input[type="search"],
@@ -145,7 +70,7 @@ textarea {
 	margin-bottom: $spacing__medium;
 	display: block;
 	width: 100%;
-	max-width: 400px;
+	max-width: 600px;
 	outline: none;
 	-webkit-appearance: none;
 
@@ -156,6 +81,7 @@ textarea {
 
 input[type="text"],
 input[type="email"],
+input[type="tel"],
 input[type="url"],
 input[type="password"],
 input[type="search"] {
@@ -166,4 +92,11 @@ textarea {
 	padding-left: $spacing__forms-input-padding;
 	width: 100%;
 	max-width: 600px;
+}
+
+select {
+	border: $border__width-site solid $color__brand-1;
+	border-radius: $border__radius-input;
+	padding: $spacing__forms-input-padding;
+	-webkit-appearance: none;
 }

@@ -35,9 +35,6 @@ function cornergallery_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
-	// Add custom image size
-	// add_image_size( 'feature', 1600, 450, true );
-
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary Menu', 'cornergallery' ),
@@ -76,24 +73,6 @@ function cornergallery_content_width() {
 add_action( 'after_setup_theme', 'cornergallery_content_width', 0 );
 
 /**
- * Register widget area.
- *
- * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
- */
-function cornergallery_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'cornergallery' ),
-		'id'            => 'sidebar-1',
-		'description'   => '',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</aside>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-}
-add_action( 'widgets_init', 'cornergallery_widgets_init' );
-
-/**
  * Enqueue scripts and styles.
  */
 function cornergallery_scripts() {
@@ -121,16 +100,6 @@ add_action( 'wp_enqueue_scripts', 'cornergallery_scripts' );
 require get_template_directory() . '/inc/template-tags.php';
 
 /**
- * Custom post types for this theme.
- */
-// require get_template_directory() . '/inc/custom-post-type.php';
-
-/**
- * Custom taxonomies for this theme.
- */
-// require get_template_directory() . '/inc/custom-taxonomy.php';
-
-/**
  * Custom Wordpress Shortcodes
  */
 require get_template_directory() . '/inc/shortcodes.php';
@@ -141,12 +110,6 @@ require get_template_directory() . '/inc/shortcodes.php';
 if (function_exists( 'is_woocommerce' )) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
-
-/**
- * Custom functions for the admin back-end
-if (is_admin()) {
-	require get_template_directory() . '/inc/admin.php';
-} */
 
 // Add Options Page (Advanced Custom Fields)
 if( function_exists('acf_add_options_page') ) {
@@ -160,3 +123,32 @@ if( function_exists('acf_add_options_page') ) {
 	));
 
 }
+
+// Add wrapper to main menu sub-menu
+class Main_Menu_Sub_Wrap extends Walker_Nav_Menu {
+	function start_lvl(&$output, $depth) {
+		$queried = get_queried_object();
+		$current_parent_cat_id = $queried->parent;
+		$current_cat_id = $queried->term_id;
+		if ($current_parent_cat_id == 0) {
+			$current_parent_cat_id = $current_cat_id;
+		}
+		$current_cat_title = get_cat_name($current_parent_cat_id);
+		$current_cat_link = get_category_link($current_parent_cat_id);
+		
+		$indent = str_repeat("\t", $depth);
+		$output .= "\n$indent<div class='sub-menu-wrapper'><nav class='shop-navigation'><div class='content-block cols clear'><div class='col col-1-1'><ul class='sub-menu'>\n";
+	}
+	function end_lvl(&$output, $depth) {
+		global $woocommerce;
+		$shop_link = get_permalink(woocommerce_get_page_id('shop'));
+		if (is_shop()) {
+			$justIn = "<li class='active-menu-item'><a href='".$shop_link."' title='View latest products'>Just In</a></li>";
+		} else {
+			$justIn = "<li><a href='".$shop_link."' title='View latest products'>Just In</a></li>";
+		}
+		$shopPages = wp_list_pages( array( 'child_of'  => '7', 'title_li' => '', 'echo' => false ) );
+		$indent = str_repeat("\t", $depth);
+		$output .= "$indent</ul></div><div class=\"col col-1-2\"><ul>".$justIn."</ul><ul>".$shopPages."</ul></div></div></nav></div>\n";
+	}
+} 

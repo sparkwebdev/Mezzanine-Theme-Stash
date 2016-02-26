@@ -1,20 +1,64 @@
-/* Home page */
-.home {
-	
-}
-
-/* Blog */
-.blog-archives, .blog-single {
-		
-}	
-.blog-archives {
-	
-}
-.blog-single {
-	
-}
-
 /* 404 Page */
-.error-404 {
+.error404 {
 
+	.site-main {
+		
+		text-align: center;
+		min-height: 20em;
+		
+	}
+
+}
+
+/* Visit Us page */
+.page-id-13 {
+	
+	.site-content {
+	
+		.content-blocks {
+			
+			.content-block {
+			
+				&:nth-of-type(3n+2) {
+				
+					h3 {
+						
+						color: $color__brand-1;
+						text-transform: none;
+						font-family: $font__headings;
+						/* Better Font Rendering */
+					    -webkit-font-smoothing: antialiased;
+						-moz-osx-font-smoothing: grayscale;
+						letter-spacing: -0.05em;
+						
+					}
+					
+				}
+			
+				&:nth-of-type(3n+3) {
+					
+					> .col:first-of-type {
+						
+						h3 {
+							
+							color: $color__brand-2;
+							text-transform: none;
+							font-family: $font__headings;
+							/* Better Font Rendering */
+						    -webkit-font-smoothing: antialiased;
+							-moz-osx-font-smoothing: grayscale;
+							letter-spacing: -0.05em;
+							
+						}
+						
+					}
+					
+				}
+					
+			}
+					
+		}
+				
+	}
+	
 }

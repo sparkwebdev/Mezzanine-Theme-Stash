@@ -2,18 +2,19 @@
 	max-width: $size__site-max-width;
 	@include center-block;
 	width: 100%;
-	padding: 0 $spacing__medium 0;
+	padding: 0 $spacing__large 0;
+	position: relative;
+	padding-top: $header__height;
 	
-	@include bp-large {
-		padding-top: $header__height;
-	}
-	.js & {
-		padding-top: $header__height;
+	.no-js & {
+		
+		padding-top: 0;
+		
 	}
 	
 	.site-branding {
 		
-		padding: $spacing__larger 0;
+		padding: 0 0 $spacing__larger 0;
 		line-height: $font__line-height-tight;
 		max-width: 28em;
 		text-align: center;
@@ -44,6 +45,9 @@
 			}
 		}
 		@include bp-large {
+			
+			padding-top: $spacing__larger;
+			
 			.site-title,
 			.site-description {
 				width: 38%;
@@ -53,6 +57,11 @@
 				width: 44%;
 				margin-left: 10%;
 			}
+		}
+		@include bp-full {
+			
+			min-height: 17.1em;
+			
 		}
 		
 		.site-title {
@@ -76,10 +85,11 @@
 		.site-description {
 			color: $color__brand-2-bright;
 			font-family: $font__headings;
-			@include font-size($font__size-h4);
 			/* Better Font Rendering */
 		    -webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
+			@include font-size($font__size-h4);
+			letter-spacing: -0.05em;
 			
 			@include bp-large {
 				@include font-size($font__size-h3);
@@ -90,117 +100,51 @@
 		}
 	}
 	
-	+ .main-navigation {
-	
-		/*position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;*/
+	/* Main Menu */
+	.main-navigation {
+
 		background: $color__brand-2-mid;
-	
+		z-index: 99;
+
 		ul {
 			list-style: none;
 			margin: 0;
 			padding: $spacing__small 0;
-			background: $color__brand-2-mid;
+			//background: $color__brand-2-mid;
 				
 			li {
 				
 				text-align: center;
-				line-height: $spacing__larger;
+				//line-height: $spacing__large;
 				
 				a {
 					display: block;
 					text-transform: lowercase;
-					font-weight: bold;
 					color: inherit;
+					padding: ($spacing__smallest + $spacing__smallest) 0;
 				}
-				
-				
-				&:last-child > a,
+
 				&.current_page_item > a,
 				&.current-menu-item > a,
 				&.current_page_ancestor > a,
-				&.current-menu-ancestor > a,
+				//&.current-menu-ancestor > a,
+				&.current-product_cat-ancestor > a,
 				a:hover, a:focus {
 					color: $color__brand-1;
 				}
 	
-	
-			}
-		}
-		
-	
-		/* Mobile Menu */
-		.js & {
-			
-			position: absolute;
-			top: 0;
-			left: 0;
-			right: 0;
-			height: $header__height;
-				
-			ul {
-		
-				display: none;
-				
-				@include bp-large {
-			
-					display: block;
-				
-				}
-				
-			
 			}
 			
-			&.toggled {
-			
-				ul {
-			
-					display: block;
-					padding-top: $spacing__largest;
+			&.menu {
 				
-				}
-				
-			}
-		}
-	
-	
-		/* Desktop Menu */
-		@include bp-large {
-			
-			position: fixed;
-			top: 0;
-			left: 0;
-			right: 0;
-				
-			ul {
-				padding-top: $spacing__medium;
-				padding: $spacing__medium 0 0 0;
-				margin-top: 0;
-				text-align: center;
-				
-				li {
-					display: inline-block;
-					position: relative;
+				> li:last-child > a {
 					
-					a {
-						
-						letter-spacing: -0.025em;
-						padding: 0 ($spacing__smallest + $spacing__smallest);
-						
-						@include bp-desktop {
-							
-							letter-spacing: inherit;
-							padding: 0 $spacing__small;
-							
-						}
-						
-					}
+					color: $color__brand-1;
+				
 				}
 				
 			}
-			
+
 		}
 		
 		
@@ -257,7 +201,228 @@
 			
 		}
 	
+		/* Mobile Menu */
+		.js & {
+			
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+				
+			ul {
+				
+				display: none;
+				
+				@include bp-large {
+			
+					display: block;
+				
+				}
+			
+			}
+			
+			&.toggled {
+			
+				ul {
+			
+					display: block;
+				
+					.shop-navigation {
+					
+						display: none;
+					
+					}
+				
+				}
+				
+			}
+			
+			.menu {
+
+				padding-top: $header__height;
+
+			}
+
+		}
+		
+		/* Desktop Menu */
+		@include bp-large {
+			
+			position: fixed !important;
+			height: $header__height;
+		
+			ul {
+				
+				li {
+				
+					line-height: $spacing__larger;
+
+					a {
+						
+						letter-spacing: -0.025em;
+						padding: 0 ($spacing__smaller + $spacing__smallest);
+						
+						@include bp-full {
+							
+							letter-spacing: inherit;
+							padding: 0 ($spacing__smaller + $spacing__smaller);
+							
+						}
+						
+					}
+					
+					.sub-menu-wrapper {
+
+						@include bp-large {
+							float: left;
+							position: absolute;
+							top: $header__height;
+							left: -999em;
+							z-index: 999;
+						}
+
+						.shop-navigation {
+		
+							ul {
+								
+								padding: 0;
+								
+								li {
+									
+									text-align: left;
+									line-height: $font__line-height-body;
+									
+									a {
+										
+										text-transform: none;
+										
+									}
+									
+								}
+								
+							}
+							
+						}
+						
+					}
+					
+				}
+	
+				li:hover > .sub-menu-wrapper,
+				li:focus > .sub-menu-wrapper {
+					left: 0;
+					right: 0;
+				}
+				
+			}
+			
+			.menu {
+				
+				text-align: center;
+
+				> li {
+					
+					display: inline-block;
+					margin-left: -0.6em;
+
+				}
+			
+				.js & {
+	
+					padding: $spacing__medium 0 0 0;
+	
+				}
+
+			}
+
+		}
+
+		/* Sub Menu Feature */
+		.sub-menu-wrapper {
+	
+			.shop-navigation {
+
+				max-width: $size__site-max-width;
+				@include center-block;
+				padding: 0 $spacing__medium $spacing__smaller $spacing__medium;
+				background-image: url(img/bg-shop-menu.jpg);
+				background-size: 100%;
+				.backgroundsize & {
+					background-size: cover;
+				}
+
+				@include bp-large {
+					min-height: 17.1em;
+					padding: $spacing__large;
+				}
+				
+				@include bp-full {
+					padding: $spacing__large ($spacing__largest + $spacing__largest);
+				}
+	
+				.flexbox & {
+	
+					display: flex;
+	
+				}
+
+				.cols {
+
+					width: 100%;
+
+					.col {
+
+						width: 100%;
+						
+						@include bp-large {
+								
+							width: 38%;
+							float: left;
+							
+						}
+
+					}
+
+					.col-1-2 {
+
+						display: none;
+						@include font-size($font__size-bigger);
+
+						@include bp-large {
+
+							display: block;
+							width: 62%;
+
+						    .flexbox & {
+
+							    display: flex;
+								flex-direction: column;
+
+						    }
+
+						}
+
+						ul:first-of-type {
+
+							margin-bottom: $spacing__medium;
+
+					    	.flexbox & {
+
+								flex-grow: 1;
+
+					    	}
+						
+						}
+						
+					}
+					
+				}
+				
+			}
+			
+			
+		}
+		
+		
 	}
-
 }
-

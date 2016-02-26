@@ -66,16 +66,57 @@
 
 <?php wp_footer(); ?>
 
-<?php if (is_front_page()) { ?>
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-<?php } ?>
+	<script>
+	jQuery( document ).ready(function() {
+		alert('1');
+		// Nav on mobile
+		jQuery('#primary-menu li').has( '.shop-navigation' ).on({ 'touchstart' : function(e){
+			var submenu = jQuery(this).find('.shop-navigation').first();
+			if (jQuery(submenu).is(":hidden") ) {
+				jQuery(submenu).show();
+				e.preventDefault();
+			}
+		} });
+		
+		// BX Slider plugin
+		jQuery('.bxslider-fader').bxSlider({
+			auto: true,
+			pager: false,
+			controls: false,
+			mode: 'fade'
+		});
+		
+		<?php if (is_product()) { ?>
+			jQuery('.woocommerce-page div.product div.thumbnails a').show();
+			jQuery('.woocommerce-page div.product div.thumbnails a:first-of-type img').addClass('current_p_thumb');
+			function resetColourChoice() {
+				jQuery('.woocommerce-page div.product div.thumbnails a').filter(':hidden').children().removeClass('current_p_thumb');
+				jQuery('.woocommerce-page div.product div.thumbnails a').show();
+			}
+			jQuery('.variations #colour').change(function() {
+				if (jQuery('.variations #colour')[0].selectedIndex == 0) {
+					resetColourChoice();
+				} else {
+					if (jQuery('.variations #pa_size')[0].selectedIndex == 0) {
+						jQuery('.variations #pa_size :nth-child(3)').prop('selected', true);
+					}
+				}
+			});
+			jQuery('.variations .reset_variations').change(function() {
+				resetColourChoice();
+			});
+		<?php } ?>
+	});
+	</script>
+
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.4";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
 
 </body>
 </html>

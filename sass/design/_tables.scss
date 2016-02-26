@@ -6,10 +6,6 @@ table {
 	tr {
 		background: $color__tone-20;
 
-		&:nth-child(2n) {
-			background: $color__tone-40;
-		}
-
 		td,
 		th {
 			padding: $spacing__smallest $spacing__small;
@@ -18,8 +14,7 @@ table {
 		}
 		
 		th {
-			background: $color__brand-1;
-			color: #fff;
+			background: $color__tone-40;
 		}
 
 	}

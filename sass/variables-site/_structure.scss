@@ -2,7 +2,8 @@
 $size__site-main: 100%;
 $size__site-sidebar: 32.1833333%;
 $size__site-sidebar-wide: 32.1833333%;
-$size__site-max-width: 88em;
+$size__site-max-width: 75em;
+$size__site-max-narrow: 65em;
 // $size__site-max-width-wide: 105em;
 // $size__site-max-width-features: 51.875em;
 // $size__site-max-width-narrow: 37.5em;
@@ -22,7 +23,7 @@ $spacing__large: 2em;
 $spacing__larger: 2.6em;
 $spacing__largest: 4em;
 $spacing__forms-input-padding: $spacing__smaller;
-$spacing__forms-button-padding: ($spacing__small - 0.2em) $spacing__medium;
+$spacing__forms-button-padding: $spacing__small $spacing__medium;
 
 // Misc
 $header__height: $spacing__larger + $spacing__medium;

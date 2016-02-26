@@ -4,7 +4,7 @@ Theme URI: http://underscores.me/
 Author: Steven Park
 Author URI: http://stevenpark.co.uk
 Description: A base theme framework for Steven Park\'s Wordpress themes, based on the Underscores theme from Automattic [http://underscores.me/]
-Version: 1.1.1
+Version: 1.1.2
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: cornergallery
@@ -76,11 +76,6 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 @import "design/design";
 
 /*--------------------------------------------------------------
-# Components
---------------------------------------------------------------*/
-@import "components/components";
-
-/*--------------------------------------------------------------
 # Plugins (3rd Party Plugins etc)
 --------------------------------------------------------------*/
 @import "plugins/plugins";
@@ -89,13 +84,3 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 # Legacy browsers (via Modernizr)
 --------------------------------------------------------------*/
 @import "legacy/legacy";
-
-
-
-
-
-
-/*--------------------------------------------------------------
-# Navigation
---------------------------------------------------------------
-@import "navigation/navigation";*/

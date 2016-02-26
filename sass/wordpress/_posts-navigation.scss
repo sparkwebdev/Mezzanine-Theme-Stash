@@ -4,10 +4,6 @@
 	margin: 0 0 $spacing__medium;
 }
 
-.edit-link {
-	clear: both;
-}
-
 .comment-navigation,
 .posts-navigation,
 .post-navigation {
@@ -26,5 +22,29 @@
 	& .nav-next {
 		float: right;
 		text-align: right;
+	}
+}
+
+/* Edit Link */
+.edit-link {
+	clear: both;
+}
+.edit-link,
+.post-edit-link {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	background: $color__brand-1;
+	z-index: 999999;
+}
+.edit-link a,
+.post-edit-link a {
+    text-decoration: none;
+    color: #fff !important;
+    display: inline-block;
+    padding: $spacing__smaller $spacing__small;
+
+    &:hover {
+		background: $color__brand-2;
 	}
 }
