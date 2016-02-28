@@ -318,6 +318,10 @@ body.woocommerce-page {
 							min-height: 275px;
 					}
 					@include bp-medium {
+					
+							min-height: 350px;
+					}
+					@include bp-large {
 
 							min-height: 450px;
 						

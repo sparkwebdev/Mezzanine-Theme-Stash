@@ -68,15 +68,27 @@
 
 	<script>
 	jQuery( document ).ready(function() {
-		alert('1');
-		// Nav on mobile
-		jQuery('#primary-menu li').has( '.shop-navigation' ).on({ 'touchstart' : function(e){
-			var submenu = jQuery(this).find('.shop-navigation').first();
-			if (jQuery(submenu).is(":hidden") ) {
-				jQuery(submenu).show();
-				e.preventDefault();
+		
+		function is_touch_device() {
+			return !!('ontouchstart' in window);
+		}
+		
+		/* If mobile browser, prevent click on parent nav item from redirecting to URL */
+		jQuery('#primary-menu li').has('.sub-menu-wrapper').each(function (index, elem) {
+			var subNav = jQuery(this).find('.sub-menu-wrapper');
+			var subLink = jQuery(this).find('> a');
+			var subLinkTitle = subLink.text();
+			var subLinkUrl = subLink.attr('href');
+			subNav.find('.sub-menu').prepend('<li class="menu-item menu-item-parent"><a href="'+subLinkUrl+'">View all '+subLinkTitle+'</a></li>');
+			subLink.addClass('sub-menu-dropdown');
+		
+			if(is_touch_device()) {
+				subLink.on('click', function(event){
+			        jQuery(this).next('.sub-menu-wrapper').toggle();
+			        event.preventDefault();
+				});
 			}
-		} });
+		});
 		
 		// BX Slider plugin
 		jQuery('.bxslider-fader').bxSlider({

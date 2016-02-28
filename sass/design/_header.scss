@@ -8,7 +8,13 @@
 	
 	.no-js & {
 		
-		padding-top: 0;
+		padding-top: $spacing__medium;
+		
+		@include bp-large {
+	
+			padding-top: $header__height;
+			
+		}
 		
 	}
 	
@@ -110,28 +116,83 @@
 			list-style: none;
 			margin: 0;
 			padding: $spacing__small 0;
-			//background: $color__brand-2-mid;
 				
 			li {
 				
 				text-align: center;
-				//line-height: $spacing__large;
 				
 				a {
 					display: block;
 					text-transform: lowercase;
 					color: inherit;
 					padding: ($spacing__smallest + $spacing__smallest) 0;
+				
+					&.sub-menu-dropdown {
+						
+						position: relative;
+							
+						&:after {
+						    content: '';
+						    height: 0;
+						    position: absolute;
+						    width: 0;
+						    border: 4px solid transparent;
+						    border-top-color: $color__brand-2;
+						    right: $spacing__medium;
+						    top: 50%;
+						    margin-top: -4px;
+						    z-index: 1;
+						    
+						}
+					}
+	
+				}
+				
+				a:hover, a:focus {
+				
+					&.sub-menu-dropdown {
+							
+						&:after {
+							
+						    border-top-color: $color__brand-1;
+						    
+						}
+					}
+	
 				}
 
+				a:hover, a:focus {
+					color: $color__brand-1;
+						
+					&.sub-menu-dropdown {
+						color: inherit;
+					}
+				}
 				&.current_page_item > a,
 				&.current-menu-item > a,
 				&.current_page_ancestor > a,
-				//&.current-menu-ancestor > a,
-				&.current-product_cat-ancestor > a,
-				a:hover, a:focus {
+				&.current-product_cat-ancestor > a {
 					color: $color__brand-1;
+					
+					&.sub-menu-dropdown {
+						color: $color__brand-1;
+					}
+						
 				}
+				
+				&.menu-item-parent {
+					
+					margin-bottom: $spacing__smaller;
+					
+					a {
+						
+						font-weight: $font__weight_bold;
+						text-transform: none;
+						
+					}
+					
+				}
+				
 	
 			}
 			
@@ -227,10 +288,17 @@
 			
 					display: block;
 				
-					.shop-navigation {
+					.sub-menu-wrapper {
 					
 						display: none;
 					
+					}
+	
+					li:hover > .sub-menu-wrapper,
+					li:focus > .sub-menu-wrapper {
+						
+						display: block;
+						
 					}
 				
 				}
@@ -249,6 +317,9 @@
 		@include bp-large {
 			
 			position: fixed !important;
+			top: 0;
+			left: 0;
+			right: 0;
 			height: $header__height;
 		
 			ul {
@@ -261,6 +332,15 @@
 						
 						letter-spacing: -0.025em;
 						padding: 0 ($spacing__smaller + $spacing__smallest);
+				
+						&.sub-menu-dropdown {
+								
+							&:after {
+							    right: 0;
+							    margin-top: -0.1em;
+							    
+							}
+						}
 						
 						@include bp-full {
 							
@@ -274,11 +354,12 @@
 					.sub-menu-wrapper {
 
 						@include bp-large {
-							float: left;
 							position: absolute;
 							top: $header__height;
-							left: -999em;
+							left: 0;
 							z-index: 999;
+							right: 0;
+							display: none;
 						}
 
 						.shop-navigation {
@@ -310,8 +391,7 @@
 	
 				li:hover > .sub-menu-wrapper,
 				li:focus > .sub-menu-wrapper {
-					left: 0;
-					right: 0;
+					display: block;
 				}
 				
 			}
@@ -319,6 +399,7 @@
 			.menu {
 				
 				text-align: center;
+				padding: $spacing__medium 0 0 0;
 
 				> li {
 					
@@ -326,11 +407,11 @@
 					margin-left: -0.6em;
 
 				}
-			
+				
 				.js & {
-	
-					padding: $spacing__medium 0 0 0;
-	
+					
+					padding-top: $spacing__medium;
+				
 				}
 
 			}
