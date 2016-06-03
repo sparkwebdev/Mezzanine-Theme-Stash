@@ -151,4 +151,7 @@ class Main_Menu_Sub_Wrap extends Walker_Nav_Menu {
 		$indent = str_repeat("\t", $depth);
 		$output .= "$indent</ul></div><div class=\"col col-1-2\"><ul>".$justIn."</ul><ul>".$shopPages."</ul></div></div></nav></div>\n";
 	}
-} 
+}
+
+// Temp - remove when live
+remove_filter('template_redirect', 'redirect_canonical');

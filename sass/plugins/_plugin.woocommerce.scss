@@ -73,6 +73,12 @@ body.woocommerce-page {
 			
 			color: $color__tone-80;
 		}
+		
+		span.onsale {
+			
+			left: $spacing__small;
+			top: $spacing__small;
+		}
 			
 		.woocommerce-main-image {
 				
@@ -161,7 +167,7 @@ body.woocommerce-page {
 				    background: url(img/bg-select-arrow.png);
 				    background-position: right 50%;
 				    background-repeat: no-repeat;
-					padding: $spacing__smallest $spacing__small;
+					padding: $spacing__smallest $spacing__medium $spacing__smallest $spacing__small;
 					border: none;
 				    -webkit-appearance: none;
 				    -moz-appearance: none;
@@ -173,12 +179,20 @@ body.woocommerce-page {
 					    
 					    outline: none;
 				    }
+				    
+				    .no-flexbox & {
+					    // Blunt way of testing for IE9 and below
+						background: none;
+						padding-right: 0;
+					    
+				    }
 					
 				}
 				
 			    select::-ms-expand {
 					display: none;
 			    }
+			    
 			}
 			
 		}
@@ -250,7 +264,8 @@ body.woocommerce-page {
 
 		.images {
 			
-			div.thumbnails {
+			div.thumbnails,
+			.svithumbnails {
 
 				//&.columns-6 {
 					
@@ -270,6 +285,12 @@ body.woocommerce-page {
 						img {
 							
 							border: solid 1px;
+							opacity: .6;
+							transition: opacity 0.5s ease-in-out;
+							
+							&.current_p_thumb {
+								opacity: 1;
+							}
 							
 						}
 						
@@ -366,9 +387,14 @@ body.woocommerce-page {
 		
 		.site-main {
 			
-			padding: 0 $spacing__large $spacing__larger $spacing__large;
+			padding: 0 0 $spacing__larger 0;
 			max-width: $size__site-max-narrow;
 			@include center-block;
+			
+			@include bp-medium {
+				
+				//padding: 0 $spacing__large $spacing__larger $spacing__large;
+			}
 			
 		}
 		
@@ -498,12 +524,28 @@ body.woocommerce-page {
 				.button {
 					
 					margin-top: $spacing__medium;
+					@include font-size(0.75);
+					
+					@include bp-mobile {
+						@include font-size(0.9);
+					}
+					@include bp-small {
+						@include font-size(1);
+					}
 					
 				}
 				
 				+ .button {
 					
 					margin-top: $spacing__medium;
+					@include font-size(0.75);
+					
+					@include bp-mobile {
+						@include font-size(0.9);
+					}
+					@include bp-small {
+						@include font-size(1);
+					}
 					
 				}
 				
@@ -512,6 +554,18 @@ body.woocommerce-page {
 		}
 		
 	}
-	
 
+}
+
+/* WorldPay Payment Buttons */
+.payment-icons {
+	img {
+		display: inline-block;
+	}
+	.woocommerce-page & {
+		margin-top: $spacing__medium;
+		@include bp-medium {
+			margin-top: 0;
+		}
+	}
 }

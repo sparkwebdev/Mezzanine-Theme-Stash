@@ -60,7 +60,8 @@
 								$imgClass = ' bg-img';
 							}
 							if (get_sub_field('left_column_image_with_link_image')) {
-								$bgImg = get_sub_field('left_column_image_with_link_image');
+								$bgImgObj = get_sub_field('left_column_image_with_link_image');
+								$bgImg = $bgImgObj['sizes']['medium_large'];
 								echo '<div class="'.$left_column_class.' col-tight'.$imgClass.'" style="background-image: url('.$bgImg.')">';
 							}
 							if (get_sub_field('left_column_image_with_link_link')) {
@@ -139,7 +140,8 @@
 								$imgClass = ' bg-img';
 							}
 							if (get_sub_field('right_column_image_with_link_image')) {
-								$bgImg = get_sub_field('right_column_image_with_link_image');
+								$bgImgObj = get_sub_field('right_column_image_with_link_image');
+								$bgImg = $bgImgObj['sizes']['medium_large'];
 								echo '<div class="'.$right_column_class.' col-tight'.$imgClass.'" style="background-image: url('.$bgImg.')">';
 							}
 							if (get_sub_field('right_column_image_with_link_link')) {

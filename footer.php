@@ -99,18 +99,26 @@
 		});
 		
 		<?php if (is_product()) { ?>
-			jQuery('.woocommerce-page div.product div.thumbnails a').show();
-			jQuery('.woocommerce-page div.product div.thumbnails a:first-of-type img').addClass('current_p_thumb');
+			// Show all thumbnails
+			jQuery('div.svithumbnails a').show();
+			// Add current class to first thumbnail
+			jQuery('div.svithumbnails a:first-of-type img').addClass('current_p_thumb');
+			// On thumbnail click set current class
+			jQuery('div.svithumbnails a img').click(function() {
+				jQuery('.current_p_thumb').removeClass('current_p_thumb');
+				jQuery(this).addClass('current_p_thumb');
+			});
+			// Reset
 			function resetColourChoice() {
-				jQuery('.woocommerce-page div.product div.thumbnails a').filter(':hidden').children().removeClass('current_p_thumb');
-				jQuery('.woocommerce-page div.product div.thumbnails a').show();
+				jQuery('div.svithumbnails a').filter(':hidden').children().removeClass('current_p_thumb');
+				jQuery('div.svithumbnails a').show();
 			}
 			jQuery('.variations #colour').change(function() {
 				if (jQuery('.variations #colour')[0].selectedIndex == 0) {
-					resetColourChoice();
+					//resetColourChoice();
 				} else {
 					if (jQuery('.variations #pa_size')[0].selectedIndex == 0) {
-						jQuery('.variations #pa_size :nth-child(3)').prop('selected', true);
+						//jQuery('.variations #pa_size :nth-child(3)').prop('selected', true);
 					}
 				}
 			});

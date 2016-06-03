@@ -29,7 +29,7 @@ function my_theme_wrapper_start() {
 }
 
 function my_theme_wrapper_end() {
-	echo '</div></div>';
+	echo '</main></div>';
 }
 
 /**
@@ -91,23 +91,29 @@ function woocommerce_add_variation_images() {
 	if ($product->product_type == "variable" && (is_product_category() || is_product_tag() || is_product())) {
 		$variations = $product->get_available_variations();
 		$variationImgs = [];
+		$image_title = "";
 		foreach ( $variations as $variation ) {
 			if ($variation['image_link']) {
 				global $wpdb;
 				$image_url = $variation['image_link'];
+				$image_title = $variation['attributes']['attribute_colour'];
 				$attachmentID = $wpdb->get_col($wpdb->prepare("SELECT ID FROM $wpdb->posts WHERE guid='%s';", $image_url ));
-				$variationImgs[] = wp_get_attachment_thumb_url($attachmentID[0]);
+				$variationImgs[] = array(wp_get_attachment_thumb_url($attachmentID[0]), $image_title);
 			}
 		}
 		if ($variationImgs) {
 			echo '<ul class="product-variation-thumbs">';
 			foreach ($variationImgs as $img) {
-				echo '<li><img src="'.$img.'" width="38" height="38" /></li>';
+				echo '<li><img src="'.$img[0].'" alt="'.$img[1].'" width="38" height="38" /></li>';
 			}
 			echo '</ul>';
 		}
 	}
 }
+
+// Products Archive, Single Product - Remove price badge
+remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );
+remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10 );
 
 // Single Product - Remove Add to Cart Buttons
 function remove_loop_button(){
@@ -159,7 +165,7 @@ function woo_remove_product_tabs( $tabs ) {
 // Single Product - Inserts tabs under the main right product content 
 //add_action( 'woocommerce_single_product_summary', 'woocommerce_output_product_data_tabs', 25 );
 
-// Hide SKUs on WooCommerce Product Pages
+// Single Product - Hide SKUs on WooCommerce Product Pages
 function shop_remove_product_page_skus( $enabled ) {
     if ( ! is_admin() && is_product() ) {
         return false;
@@ -174,6 +180,21 @@ function woo_custom_cart_button_text() {
     return __( 'Add to Bag', 'woocommerce' );
 }
 
+// Cart - Basket Text
+function wpa_change_my_basket_text( $translated_text, $text, $domain ){
+    if( $translated_text == 'Cart' )
+        $translated_text = 'Bag';
+    return $translated_text;
+}
+add_filter( 'gettext', 'wpa_change_my_basket_text2', 10, 3 );
+// Cart - Basket Text
+function wpa_change_my_basket_text2( $translated_text, $text, $domain ){
+    if( $translated_text == 'cart' )
+        $translated_text = 'bag';
+    return $translated_text;
+}
+add_filter( 'gettext', 'wpa_change_my_basket_text', 10, 3 );
+
 // Single Product - Remove related products
 remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
 
@@ -187,3 +208,16 @@ add_filter( 'woocommerce_cross_sells_columns', 'woocommerce_cross_sells_columns'
 function woocommerce_cross_sells_columns() {
 	return 3;
 }
+
+
+// Cart - Output paymment icons 
+function woocommerce_after_cart_totals_append() {
+    echo '<p class="payment-icons"><a href="http://www.mastercard.com" target="_blank"><img src="https://secure.worldpay.com/jsp/shopper/icons/WP_ECMC.gif" alt="MasterCard"></a>&nbsp;<a href="http://www.jcbusa.com" target="_blank"><img src="https://secure.worldpay.com/jsp/shopper/icons/WP_JCB.gif" alt="JCB"></a>&nbsp;<a href="http://www.maestrocard.com" target="_blank"><img src="https://secure.worldpay.com/jsp/shopper/icons/WP_MAESTRO.gif" alt="Maestro"></a>&nbsp;<a href="http://www.visa.com" target="_blank"><img src="https://secure.worldpay.com/jsp/shopper/icons/WP_VISA_DELTA.gif" alt="Visa Debit"></a><br /><a href="http://www.worldpay.com/support/index.php?CMP=BA22713" target="_blank"><img src="https://secure.worldpay.com/jsp/shopper/icons/../pictures/poweredByWorldPay.gif" alt="Powered by WorldPay"></a></p>';
+}
+add_action('woocommerce_after_cart_totals', 'woocommerce_after_cart_totals_append', 10, 0);
+
+// Checkout - Output paymment icons 
+function woocommerce_review_order_after_submit_append(  ) { 
+    echo '<p class="payment-icons"><a href="http://www.mastercard.com" target="_blank"><img src="https://secure.worldpay.com/jsp/shopper/icons/WP_ECMC.gif" alt="MasterCard"></a>&nbsp;<a href="http://www.jcbusa.com" target="_blank"><img src="https://secure.worldpay.com/jsp/shopper/icons/WP_JCB.gif" alt="JCB"></a>&nbsp;<a href="http://www.maestrocard.com" target="_blank"><img src="https://secure.worldpay.com/jsp/shopper/icons/WP_MAESTRO.gif" alt="Maestro"></a>&nbsp;<a href="http://www.visa.com" target="_blank"><img src="https://secure.worldpay.com/jsp/shopper/icons/WP_VISA_DELTA.gif" alt="Visa Debit"></a><br /><a href="http://www.worldpay.com/support/index.php?CMP=BA22713" target="_blank"><img src="https://secure.worldpay.com/jsp/shopper/icons/../pictures/poweredByWorldPay.gif" alt="Powered by WorldPay"></a></p>';
+};
+add_action( 'woocommerce_review_order_after_submit', 'woocommerce_review_order_after_submit_append', 10, 0 );

@@ -89,7 +89,8 @@
 			}
 		}
 		.site-description {
-			color: $color__brand-2-bright;
+			//color: $color__brand-2-bright;
+			color: #D8ED2D;
 			font-family: $font__headings;
 			/* Better Font Rendering */
 		    -webkit-font-smoothing: antialiased;
@@ -101,7 +102,7 @@
 				@include font-size($font__size-h3);
 			}
 			@include bp-desktop {
-				@include font-size($font__size-h2);
+				@include font-size(1.625);
 			}
 		}
 	}
@@ -359,7 +360,8 @@
 							left: 0;
 							z-index: 999;
 							right: 0;
-							display: none;
+							height: 0;
+							overflow: hidden;
 						}
 
 						.shop-navigation {
@@ -391,7 +393,7 @@
 	
 				li:hover > .sub-menu-wrapper,
 				li:focus > .sub-menu-wrapper {
-					display: block;
+					height: auto;
 				}
 				
 			}
