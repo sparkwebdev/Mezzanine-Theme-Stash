@@ -152,3 +152,14 @@ class Main_Menu_Sub_Wrap extends Walker_Nav_Menu {
 		$output .= "$indent</ul></div><div class=\"col col-1-2\"><ul>".$justIn."</ul><ul>".$shopPages."</ul></div></div></nav></div>\n";
 	}
 }
+
+
+/**
+ * Deregister 3rd party plugins styles/scripts
+ */
+// Wolf Twitter Plugin 
+function remove_assets() {
+    wp_dequeue_style( 'wolf-twitter' );
+    wp_deregister_style( 'wolf-twitter' );
+}
+add_action( 'wp_enqueue_scripts', 'remove_assets', 20 );

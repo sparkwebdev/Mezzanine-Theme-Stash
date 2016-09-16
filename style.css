@@ -4,7 +4,7 @@ Theme URI: http://underscores.me/
 Author: Steven Park
 Author URI: http://stevenpark.co.uk
 Description: A base theme framework for Steven Park\'s Wordpress themes, based on the Underscores theme from Automattic [http://underscores.me/]
-Version: 1.2.0
+Version: 1.2.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: cornergallery
@@ -1313,6 +1313,18 @@ table {
             opacity: 0.65; }
             .site-footer .site-info p.social-buttons:hover a:hover, .site-footer .site-info p.social-buttons:hover a:focus, .site-footer .site-info p.social-buttons:focus a:hover, .site-footer .site-info p.social-buttons:focus a:focus {
               opacity: 1; } }
+  .site-footer .mailchimp-subscribe {
+    margin-top: 2em; }
+    .site-footer .mailchimp-subscribe p {
+      margin: 0 0 0.2em 0; }
+    .site-footer .mailchimp-subscribe .yikes-easy-mc-form.yikes-mailchimp-form-inline {
+      width: auto; }
+    .site-footer .mailchimp-subscribe .yikes-easy-mc-form label.label-inline {
+      width: calc( 100% - 30% ); }
+      @media only screen and (min-width: 37.5em) {
+        .site-footer .mailchimp-subscribe .yikes-easy-mc-form label.label-inline input[type=email] {
+          /* 600px @ 16px; */
+          min-width: 13em; } }
 
 /* 404 Page */
 .error404 .site-main {
@@ -1344,6 +1356,38 @@ table {
 /*--------------------------------------------------------------
 # Plugins (3rd Party Plugins etc)
 --------------------------------------------------------------*/
+/* Wolf Tweets Plugin */
+ul.wolf-tweet-list li {
+  list-style-type: none !important;
+  margin-bottom: 1em;
+  margin-left: 0 !important;
+  padding-left: 8px;
+  position: relative; }
+
+ul.wolf-tweet-list li:before {
+  content: "\201C";
+  font-size: 3.1em;
+  font-family: Georgia,serif;
+  opacity: .6;
+  position: absolute;
+  left: -0.4em;
+  top: .2em; }
+
+.wolf-tweet-time a {
+  display: inline-block;
+  width: 100%;
+  opacity: .6;
+  border: none !important;
+  text-decoration: none !important; }
+
+.wolf-bigtweet-content {
+  max-width: 800px;
+  margin: 0 auto; }
+
+.wolf-bigtweet-content span.wolf-tweet-text {
+  font-size: 24px;
+  position: relative; }
+
 /**
  * BxSlider v4.1.2 - Fully loaded, responsive content slider
  * http://bxslider.com

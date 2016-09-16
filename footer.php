@@ -60,6 +60,12 @@
 			}
 			?>
 			<p><a href="<?php echo get_permalink(13); ?>" title="Visit The Corner Gallery">Come & visit</a> our shop in Moffat or Kirkcudbright</p>
+			<div class="cols mailchimp-subscribe">
+			<div class="col">
+			<p>Signup for news:</p>
+			<?php echo do_shortcode('[yikes-mailchimp form="1"]'); ?>
+			</div>
+			</div>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

@@ -77,4 +77,22 @@
 			}
 		}
 	}
+	
+	.mailchimp-subscribe {
+		margin-top: $spacing__large;
+		p {
+			margin: 0 0 $spacing__smallest 0;
+		}
+		.yikes-easy-mc-form.yikes-mailchimp-form-inline {
+			width: auto;
+		}
+		.yikes-easy-mc-form label.label-inline {
+			width: calc( 100% - 30% );
+			input[type=email] {
+				@include bp-small() {
+					min-width: 13em;
+				}
+			}
+		}
+	}
 }

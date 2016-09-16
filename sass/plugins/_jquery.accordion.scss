@@ -1,0 +1,79 @@
+.js .accordion {
+
+	margin-bottom: $spacing__medium;
+	border-bottom: solid 1px $color__tone-80;
+
+	dt {
+		margin: 0;
+
+		h3 {
+			margin-bottom: 0;
+			padding-top: $spacing__small;
+			padding-bottom: $spacing__small;
+			border-top: solid 1px $color__tone-80;
+			position: relative;
+			padding-right: 30px;
+			@include font-size(1);
+			color: $color__link;
+			font-weight: $font__weight-bold;
+
+			&:before {
+				content: ' ';
+				position: absolute;
+				top: 50%;
+				right: 8px;
+				margin-top: -6px;
+				/*
+				height: 0;
+				width: 0;
+				border: 8px solid transparent;
+				border-left-color: $color__link;*/
+				z-index: 1;
+				height: 12px;
+				width: 7px;
+				background: url(img/icon-arrow.png);
+			}
+
+			&:hover {
+				color: $color__link-hover;
+				cursor: pointer;
+				transition: $transition__color;
+
+				&:before {
+					border-left-color: $color__link-hover;
+				}
+			}
+
+		}
+
+		&.accordion-active h3:before {
+			transition: $transition__all_fast;
+			transform: rotate(90deg);
+			border-left-color: $color__tone-40;
+		}
+	}
+
+	dd {
+		display: none;
+		margin: 0;
+		@include font-size(1);
+		padding-left: 16px;
+			padding-right: 30px;
+	}
+
+}
+
+@media screen and (min-width: 48em) {
+
+	.js .accordion {
+
+		dt {
+
+			h3 {
+				@include font-size($font__size-h4);
+			}
+		}
+
+	}
+
+}
